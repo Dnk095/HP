@@ -19,12 +19,11 @@ public class SmothHealthBar : HealthBar
 
     private IEnumerator SmothDraw(int currentHealth, int maxHealth)
     {
-        float startHP=_slider.value;
         float health = (float)currentHealth / maxHealth;
 
         while (_slider.value != health)
         {
-            _slider.value = Mathf.MoveTowards(startHP, health, _barStep * Time.deltaTime);
+            _slider.value = Mathf.MoveTowards(_slider.value, health, _barStep * Time.deltaTime);
             yield return null;
         }
     }
