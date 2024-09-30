@@ -6,7 +6,7 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Health _health;
 
-    private Slider _slider;
+    protected Slider _slider;
 
     private void OnEnable()
     {
@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
 
-    private void OnChangeHealth(int currentHealth, int maxHealth)
+    protected virtual void OnChangeHealth(int currentHealth, int maxHealth)
     {
         _slider.value = (float)currentHealth / maxHealth;
     }
